@@ -42,6 +42,7 @@ const people = [
 ]
 
 //Lo visualizzo
+console.log("Ecco le mie persone");
 console.log(people);
 
 const sentecesForPeople = people.map(person => {
