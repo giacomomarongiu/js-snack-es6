@@ -8,6 +8,9 @@ let word = "prova";
 
 function reverseWord(word) {
     let myword = word;
+    //Split trasforma la stringa in un array, 
+    //reverse inverte il verso,
+    //infine Join la riuisce da stringa
     let myNewWord = myword.split('').reverse().join('');
     return myNewWord;
 }
