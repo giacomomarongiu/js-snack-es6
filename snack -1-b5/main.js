@@ -4,7 +4,7 @@ console.log("Hello Snack 1 - Blocco 5");
  indicando per ognuna varietà, peso e lunghezza.
 Calcola quanto pesano tutte le zucchine. */
 
-const zucchine = [
+/* const zucchine = [
     {
         varieta: "x",
         peso: 1,
@@ -57,15 +57,15 @@ const zucchine = [
     },
 ]
 
-const pesoZucchine = function sum(...myArray) {
+const pesoZucchine = function(...myArray) {
     let sum = 0;
     zucchine.forEach(zucchina => {
         const {peso}= zucchina;
         console.log(peso);
         sum +=peso;
     })
-
     return sum
 }
 
-console.log(pesoZucchine(zucchine));
+console.log(pesoZucchine(zucchine)); */
+
