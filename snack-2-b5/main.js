@@ -57,10 +57,6 @@ const zucchine = [
     },
 ]
 
-
-
-
-
 let underZucchine = [];
 let overZucchine = [];
 let pesoUnderZucchine = 0;
