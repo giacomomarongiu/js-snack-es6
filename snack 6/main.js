@@ -48,28 +48,18 @@ let footballTeams = [
 
 //FUNZIONI
 //Creo una funzione che mi genera numeri random da 0 a 50
-function randomFouls() {
-    let x = Math.floor(Math.random() * 50);
+function randomNumbers(n) {
+    let x = Math.floor(Math.random() * n);
     return x;
 }
 //Verifico se funziona
 //console.log(randomFouls());
 
 
-//Creo una funzione che mi genera numeri random da 0 a 100
-function randomPoints() {
-    let x = Math.floor(Math.random() * 100);
-    return x;
-}
-//Verifico se funziona
-//console.log(randomPoints());
-
-
-
 //Utilizzo Map sul mio array per modificare il valori con i numeri random
-footballTeams.map(team => {
+footballTeams.forEach(team => {
     //Utilizzo le mie funzioni qui dentro
-    return team.puntifatti = randomPoints(), team.fallisubiti = randomFouls();
+    team.puntifatti = randomNumbers(100), team.fallisubiti = randomNumbers(50);
 })
 //Lo stampo
 console.log("Ecco l'array con le squadre e i valori casuali");

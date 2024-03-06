@@ -38,19 +38,19 @@ const bikes = [
 console.log(bikes);
 
 //Inizializzo la variabile in cui salverò il valore della bici più pesante
-let heavyBikeW = 0;
+let heavyBikeW = 1000000;
 let heavyBikeN = "";
 //Utilizzo foreach per ciclare l'array
-const heavyBike = bikes.filter(bike => {
+const heavyBike = bikes.forEach(bike => {
     //Utilizzo il destructuring per inizializzare una variabile e contemporaneamente
     //assegnarle il valore della proprietà peso del mio oggetto
     let { nome, peso } = bike;
     //Verifico la corretta assegnazione
     //console.log(nome, peso);
-    if (peso > heavyBikeW) {
+    if (peso < heavyBikeW) {
         heavyBikeW = peso;
         heavyBikeN = nome;
     }
 });
 //Utilizzo il templete literal per stampare in log la bici più pesante
-console.log(`La bici più pesante è ${heavyBikeN} e pesa ${heavyBikeW}`);
+console.log(`La bici meno pesante è ${heavyBikeN} e pesa ${heavyBikeW}`);
