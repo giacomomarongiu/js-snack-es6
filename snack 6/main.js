@@ -110,7 +110,7 @@ container.append(row);
 
 //Assegno struttuta Bootstrap aggiungendo classi ai miei elementi sul DOM
 container.classList.add('container');
-row.classList.add('row','g-3');
+row.classList.add('row', 'g-3');
 
 //Creo una funzione per stampare gli array sul DOM
 /** Questa funzione serve per stampare sul DOM un array di oggetti
@@ -119,21 +119,21 @@ row.classList.add('row','g-3');
  * @param {array} teams 
  */
 function letsDOM(teams) {
-    teams.forEach(object => {
-        let {nome,fallisubiti,puntifatti}=object;
-        let differentBg= "bg-primary";
+    teams.forEach(team => {
+        let { nome, fallisubiti, puntifatti } = team;
+        let differentBg = "bg-primary";
         const col = document.createElement('div');
         const card = document.createElement('div');
 
         //Valuto il caso del secondo array e gli cambio colore per distiguersi
-        if(puntifatti===undefined){
+        if (puntifatti === undefined) {
             puntifatti = "";
-            differentBg ="bg-secondary"
+            differentBg = "bg-secondary"
         }
 
         //Aggiungo a ogni iterazione una colonna
         row.append(col);
-        col.classList.add('col-4','p-1');
+        col.classList.add('col-4', 'p-1');
 
         //Aggiungo a ogni iterazione una card
         col.append(card);
@@ -146,7 +146,7 @@ function letsDOM(teams) {
     <p class="card-text">Falli subiti: ${fallisubiti}</p>
      </div>`
 
-        card.innerHTML= markup;
+        card.innerHTML = markup;
     })
 }
 
@@ -154,3 +154,59 @@ function letsDOM(teams) {
 //Chiamo la funzione per entrambi gli array
 letsDOM(footballTeams);
 letsDOM(footballTeamsNoFouls);
+
+
+
+
+
+
+
+//BONUS AUTO-FATTO
+//Creare un array che metta in ordine di puntifatti l'array delle squadre
+//Stamparlo sul DOM come fosse una classifica
+
+
+/**Questa funzione serve per stampare in una tabella ordinata per puntifatti sul DOM 
+ * un array di oggetti che hanno come paramentri nome, punti fatti, falli subiti;
+ * 
+ * @param {array} teams 
+ */
+function letsRank(teams) {
+    //Metto in ordine di punti le squadre dell'array
+    const rankedTeams = teams.sort((a, b) => b.puntifatti - a.puntifatti);
+    //Costruisco sul DOM una tabella che mi li stampi in ordine
+    const tab = document.createElement('table');
+    container.append(tab);
+    tab.classList.add('col-12', 'table','table-primary')
+    tab.innerHTML = `  <thead>
+    <tr>
+      <th scope="col">Posizione</th>
+      <th scope="col">Nome Squadra</th>
+      <th scope="col">Punti fatti</th>
+      <th scope="col">Falli subiti</th>
+      <tbody></tbody>
+    </tr>
+  </thead>`
+    let position = 0;
+    const tabRow = document.querySelector('tbody')
+    rankedTeams.forEach(team => {
+        let { nome, fallisubiti, puntifatti } = team;
+        //Valuto il caso del secondo array e gli cambio colore per distiguersi
+        if (puntifatti === undefined) {
+            puntifatti = "ND";
+        }
+        position = position + 1;
+
+        const markup = `    
+        <tr>
+        <th scope="row">${position}°</th>
+        <td>${nome}</td>
+        <td>${puntifatti}</td>
+        <td>${fallisubiti}</td>
+        </tr>
+`
+        tabRow.insertAdjacentHTML("beforeend", markup)
+    })
+}
+
+letsRank(footballTeams)
