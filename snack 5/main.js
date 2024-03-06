@@ -37,7 +37,7 @@ const bikes = [
 //Lo visualizzo
 console.log(bikes);
 
-//Inizializzo la variabile in cui salverò il valore della bici più pesante
+//Inizializzo la variabile in cui salverò il valore della bici meno pesante
 let heavyBikeW = 1000000;
 let heavyBikeN = "";
 //Utilizzo foreach per ciclare l'array
