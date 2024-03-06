@@ -60,7 +60,7 @@ const zucchine = [
 const pesoZucchine = function sum(...myArray) {
     let sum = 0;
     zucchine.forEach(zucchina => {
-        const peso= zucchina.peso;
+        const {peso}= zucchina;
         console.log(peso);
         sum +=peso;
     })
